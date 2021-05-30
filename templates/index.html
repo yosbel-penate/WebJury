@@ -1,60 +1,29 @@
 <!DOCTYPE html>
 <html>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-.no-js #loader { display: none;  }
-.js #loader { display: block; position: absolute; left: 100px; top: 0; }
-.se-pre-con {
-	position: fixed;
-	left: 0px;
-	top: 0px;
-	width: 100%;
-	height: 100%;
-	z-index: 9999;
-	background: url("static/image/Spinner-2.gif") center no-repeat white;
-}
-</style>
-<!-- Fonts -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic">
-
-<!-- CSS Reset -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
-<link rel="stylesheet" href="css/style.css">
-
-<!-- Milligram CSS -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.4.1/milligram.css">
 <head>
-    <link rel="icon" href="static/image/favicon.ico">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script>
-    <!-- Script -->
-    <script type='text/javascript' src='script.js'></script>
     <script>
         $(document).ready(function(){
-            $(".se-pre-con").fadeOut("slow");;
             $('#content').load("login.html");
         });
     </script>
 </head>
 <body>
-    <div class="se-pre-con"></div>
+    <div class="header gradient noselect">
+        <i class="fa fa-bath fa-4x" aria-hidden="true"></i>
+        <h2>Jurado</h2>
+        <p  class="description">All for freedom</p>
+    </div>
 
-<div class="header gradient noselect">
-    <i class="fa fa-bath fa-4x" aria-hidden="true"></i>
-    <h2>Jurado</h2>
-    <p  class="description">All for freedom</p>
-</div>
-
-<div class="navbar">
-    <a class="active" href="#"><i class="fa fa-fw fa-home"></i> Home</a>
-    <a href="#"><i class="fa fa-fw fa-search"></i> Search</a>
-    <a href="#"><i class="fa fa-fw fa-envelope"></i> Contact</a>
-    <a href="#"><i class="fa fa-fw fa-user"></i> Login</a>
-</div>
-<!-- Body -->
-<div id="content"></div>
-<!-- End Body -->
+    <div class="navbar">
+        <a class="active" href="#"><i class="fa fa-fw fa-home"></i> Home</a>
+        <a href="#"><i class="fa fa-fw fa-search"></i> Search</a>
+        <a href="#"><i class="fa fa-fw fa-envelope"></i> Contact</a>
+        <a href="#"><i class="fa fa-fw fa-user"></i> Login</a>
+    </div>
+    <!-- Body -->
+    <div id="content"></div>
+    <!-- End Body -->
 <footer>
     <p>Author: Jon Smith<br>
     <a href="mailto:hege@example.com">hege@example.com</a></p>
