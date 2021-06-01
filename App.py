@@ -1,5 +1,4 @@
 from flask import Flask, config, render_template, request, url_for, redirect, flash
-from flask.wrappers import Request
 
 app = Flask(__name__)
 
@@ -10,6 +9,14 @@ def Load():
 @app.route('/index')
 def Index():
     return render_template('index.html')
+
+@app.route('/login')
+def Login():
+    return render_template('login.html')
+
+@app.route('/statement')
+def Statement():
+    return render_template('statement.html')
 
 if __name__ == '__main__':
     app.run(port=3000 ,debug=True)

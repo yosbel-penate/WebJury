@@ -29,26 +29,60 @@
                 width: 100%;
                 height: 100%;
                 z-index: 9999;
-                background: url("{{url_for('static', filename='image/Spinner-2.gif')}}") center no-repeat white;
+                background:  center no-repeat white;
+            }
+            .vertical-center {
+                margin: 0;
+                position: absolute;
+                top: 50%;
+                -ms-transform: translateY(-50%);
+                transform: translateY(-50%);
+            }
+            .center {
+                margin: 0;
+                position: absolute;
+                top: 50%;
+                left: 37%;
+                -ms-transform: translate(-50%, -50%);
+                transform: translate(-50%, -50%);
             }
         </style>
         <script>
             $(document).ready(function(){
-               // $('#content').load("/index").ready(function(){
-                 //   $(".se-pre-con").fadeOut("slow");
-                //});
+                $( "#content" ).load( "{{url_for('Index')}}", function( response, status, xhr ){
+                    if ( status != "error" ){
+                        $("#load").fadeOut("slow");
+                        $("#body").load("{{url_for('Login')}}");
 
-                $( "#content" ).load( "/index", function( response, status, xhr ) {
-                    if ( status != "error" ) {
-                        $(".se-pre-con").fadeOut("slow");
-                    }
-                });
+                        $('#navBar').on('click','#statement',function(e){
+                            e.preventDefault;
+                            $("#body").fadeOut('slow').load("{{url_for('Statement')}}").fadeIn('slow');
+                        });
+                        $('#navBar').on('click','#search',function(e){
+                            e.preventDefault;
+                            $("#body").fadeOut('slow').load("{{url_for('Statement')}}").fadeIn('slow');
+                        });
+                        $('#navBar').on('click','#contact',function(e){
+                            e.preventDefault;
+                            $("#body").fadeOut('slow').load("{{url_for('Statement')}}").fadeIn('slow');
+                        });
+                        $('#navBar').on('click','#login',function(e){
+                            e.preventDefault;
+                            $("#body").fadeOut('slow').load("{{url_for('Login')}}").fadeIn('slow');
+                        });
+                        $('#navBar').on('click','#home',function(e){
+                            e.preventDefault;
+                            $("#body").fadeOut('slow').load("{{url_for('Login')}}").fadeIn('slow');
+                        });
+                    }});});
 
-            });
         </script>
 </head>
 <body>
-    <div class="se-pre-con"></div>
+    <div id="load" class="vertical-center center">
+        <i id="loader" class=" colorLoad fa fa-spinner fa-pulse fa-3x fa-fw"></i>
+        <span class="sr-only">Loading...</span>
+    </div>
     <div id="content"></div>
 </body>
 </html>
