@@ -1,19 +1,19 @@
 from flask import Flask, config, render_template, request, url_for, redirect, flash,jsonify
-from flask_pymongo import PyMongo
+from flask_mongoengine import MongoEngine
 
 app = Flask(__name__)
 
-app.config["MONGO_URI"] = "mongodb+srv://mongouser:My6Gmkc3Zno7SVQ7@cluster0.kfbtu.mongodb.net/Personal?retryWrites=true&w=majority"
-mongo = PyMongo(app)
+app.config["MONGODB_HOST"] = "mongodb+srv://mongouser:My6Gmkc3Zno7SVQ7@cluster0.kfbtu.mongodb.net/Personal?retryWrites=true&w=majority"
 
-db_operations = mongo.db.User
+db = MongoEngine(app)
+
+class User(db.DynamicDocument):
+    pass
 
 @app.route('/create')
 def create():
-    new_user ={"user_name":"pepe", "age":"45"}
-    db_operations.insert_one(new_user)
-    result = {'result' : 'Created successfully'}
-    return result
+    users = User.objects()
+    return jsonify(users), 10
 
 @app.route('/')
 def Load():
