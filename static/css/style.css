@@ -83,3 +83,7 @@ footer
                                   supported by Chrome and Opera */
 }
 
+#statementText {
+  padding-top: 2px;
+  padding-right: 50px;
+}
